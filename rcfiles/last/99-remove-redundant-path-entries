@@ -1,0 +1,2 @@
+# remove redundant path entries
+export PATH=$(echo $PATH|perl -F: -lape'$_=join":",grep!$s{$_}++,@F')

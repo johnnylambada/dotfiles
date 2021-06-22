@@ -1,0 +1,17 @@
+# Set up my shell
+dirs=(
+	~/dotfiles/rcfiles/boxes/$(uname -n | sed 's/\..*//')
+	~/dotfiles/rcfiles/os/$(uname)
+	~/dotfiles/rcfiles/tools 
+	~/dotfiles/rcfiles/projects
+	~/dotfiles/rcfiles/last
+)
+
+for dir in ${dirs[@]}; do
+	printf "$dir:\n\t"
+	for x in $(find $dir -name "*.swp" -prune -o -name ".idea" -prune -o -type f -print|sort); do
+        /bin/echo -n "$(basename $x) "
+		. $x
+	done
+    echo
+done

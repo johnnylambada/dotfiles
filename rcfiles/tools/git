@@ -1,0 +1,6 @@
+# git
+alias ga='git add'
+alias gc='git commit'
+alias gd='git diff'
+alias gs='git status'
+alias gbranches='for ref in $(git for-each-ref --format='"'"'%(refname:short)'"'"' | grep '"'"'origin/'"'"'); do git --no-pager log $ref -n 1 --format='"'"'tformat:%Cgreen%h%Creset %d %an %Cblue%ar%Creset %s'"'"'; done'
